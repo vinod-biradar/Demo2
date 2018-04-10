@@ -1,0 +1,27 @@
+#!/usr/bin/env python27
+import urllib2
+import base64
+import json
+import os
+import sys
+import re
+
+os.system("clear")
+print "-" * 80
+print "Command Line Search Tool"
+print "-" * 80
+
+def Banner(text):
+    print "=" * 70
+    print text
+    print "=" * 70
+    sys.stdout.flush()
+
+def sortByVotes():
+    Banner('Sort By Votes')
+    url = "http://www.commandlinefu.com/commands/browse/sort-by-votes/json"
+    request = urllib2.Request(url)
+    response = json.load(urllib2.urlopen(request))
+    #print json.dumps(response,indent=2)
+    for c in response:
+        print "-" * 60
